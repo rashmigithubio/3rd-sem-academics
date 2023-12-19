@@ -1,0 +1,45 @@
+#include <stdio.h>
+ #include <unistd.h> 
+#include <stdlib.h> 
+
+main(void) 
+{ 
+pid\_t pid = 0; 
+pid = fork(); 
+if (pid == 0)
+ { 
+printf("I am the child.\\n"); 
+} if (pid > 0)
+ { printf("I am the parent, the child is %d.\\n", pid); 
+} 
+if (pid < 0) 
+{ 
+perror("In fork():");
+ } 
+exit(0); 
+} 
+
+Running this, we get:
+
+kris@linux:/tmp/kris> make probe1 cc probe1.c -o probe1 kris@linux:/tmp/kris> ./probe1 
+I am the child. 
+I am the parent, the child is 16959.
+
+
+2) Wait
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+#include <sys/types.h>
+#include <sys/wait.h>
+
+main(void) {
+        pid\_t pid = 0;
+        int   status;
+
+        pid = fork();
+        if (pid == 0) {
+                printf("I am the child.\\n");
+                sleep(10);
+                p…
