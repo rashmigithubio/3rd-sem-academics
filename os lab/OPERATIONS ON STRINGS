@@ -1,0 +1,20 @@
+DS LAB (BCSL305)
+Prepared by Prof. Shruthi S , Dept Of AI & DS
+}
+else //mismatch
+{
+ans[j] = STR[c];
+j++; c++;
+m = c; i=0;
+}
+}
+if(flag==0)
+{
+printf("Pattern doesn't found!!!");
+}
+else
+{
+ans[j] = '\0';
+printf("\nThe RESULTANT string is:%s\n" ,ans);
+}
+}
