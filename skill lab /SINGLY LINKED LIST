@@ -1,0 +1,422 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure for singly linked list
+struct TaskNode {
+    char taskName[50];
+    struct TaskNode* next;
+};
+
+// Function to insert a new task at the beginning of the list
+struct TaskNode* insertTask(struct TaskNode* head, const char* newTaskName) {
+    struct TaskNode* newTask = (struct TaskNode*)malloc(sizeof(struct TaskNode));
+    if (newTask == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(1); // Exit with an error code
+    }
+
+    // Copy the task name to the new node
+    snprintf(newTask->taskName, sizeof(newTask->taskName), "%s", newTaskName);
+
+    // Set the next pointer to the current head
+    newTask->next = head;
+
+    // Return the new head of the list
+    return newTask;
+}
+
+// Function to display the list of tasks
+void displayTasks(struct TaskNode* head) {
+    struct TaskNode* current = head;
+
+    printf("Task List:\n");
+    while (current != NULL) {
+        printf("- %s\n", current->taskName);
+        current = current->next;
+    }
+
+    printf("\n");
+}
+
+// Function to free the memory allocated for the linked list
+void freeTasks(struct TaskNode* head) {
+    struct TaskNode* current = head;
+    struct TaskNode* nextTask;
+
+    while (current != NULL) {
+        nextTask = current->next;
+        free(current);
+        current = nextTask;
+    }
+}
+
+int main() {
+    // Initialize an empty task list
+    struct TaskNode* taskList = NULL;
+
+    // Insert tasks
+    taskList = insertTask(taskList, "Complete project report");
+    taskList = insertTask(taskList, "Prepare for meeting");
+    taskList = insertTask(taskList, "Review code changes");
+
+    // Display the task list
+    displayTasks(taskList);
+
+    // Free the memory allocated for the task list
+    freeTasks(taskList);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+
+// Queue structure
+struct Queue {
+    int items[MAX_SIZE];
+    int front;
+    int rear;
+};
+
+// Function to initialize the queue
+void initializeQueue(struct Queue* queue) {
+    queue->front = -1;
+    queue->rear = -1;
+}
+
+// Function to check if the queue is empty
+int isEmpty(struct Queue* queue) {
+    return queue->front == -1;
+}
+
+// Function to check if the queue is full
+int isFull(struct Queue* queue) {
+    return (queue->rear + 1) % MAX_SIZE == queue->front;
+}
+
+// Function to enqueue (add) an item to the queue
+void enqueue(struct Queue* queue, int item) {
+    if (isFull(queue)) {
+        printf("Queue is full. Cannot enqueue more items.\n");
+        return;
+    }
+
+    // If the queue is empty, s…
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+
+// Stack structure
+struct Stack {
+    int items[MAX_SIZE];
+    int top;
+};
+
+// Function to initialize the stack
+void initializeStack(struct Stack* stack) {
+    stack->top = -1;
+}
+
+// Function to check if the stack is empty
+int isEmpty(struct Stack* stack) {
+    return stack->top == -1;
+}
+
+// Function to check if the stack is full
+int isFull(struct Stack* stack) {
+    return stack->top == MAX_SIZE - 1;
+}
+
+// Function to push an item onto the stack
+void push(struct Stack* stack, int item) {
+    if (isFull(stack)) {
+        printf("Stack overflow. Cannot push more items.\n");
+        return;
+    }
+
+    stack->items[++stack->top] = item;
+}
+
+// Function to pop an item from the stack
+int pop(struct Stac…
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure for a node in the doubly linked list
+struct Node {
+    int data;
+    struct Node* next;
+    struct Node* prev;
+};
+
+// Function to create a new node
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    if (newNode == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+    newNode->data = data;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the doubly linked list
+struct Node* insertAtBeginning(struct Node* head, int data) {
+    struct Node* newNode = createNode(data);
+    if (head == NULL) {
+        return newNode;
+    }
+    newN…
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure for a binary tree node
+struct TreeNode {
+    int data;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
+
+// Function to create a new node with the given data
+struct TreeNode* createNode(int data) {
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    if (newNode == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+    newNode->data = data;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to perform an in-order traversal of the binary tree
+void inOrderTraversal(struct TreeNode* root) {
+    if (root != NULL) {
+        inOrderTraversal(root->left);
+        printf("%d ", root->data);
+        …
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1])
+                swap(&arr[j], &arr[j + 1]);
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bubbleSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a= *b;
+    *b = temp;
+}
+
+void selectionSort(int arr[], int n) {
+    int i, j, min_idx;
+    for (i = 0; i < n - 1; i++) {
+        min_idx = i;
+        for (j = i + 1; j < n; j++)
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    selectionSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#include <stdio.h>
+
+void insertionSort(int arr[], int n) {
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j+1] = arr[j];
+            j = j-1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    insertionSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Function to merge two sorted lists
+void mergeSortedLists(char** list1, int size1, char** list2, int size2, char** mergedList, int mergedSize) {
+    *mergedSize = size1 + size2;
+    mergedList = (char)malloc(sizeof(char) * (*mergedSize));
+
+    int i = 0, j = 0, k = 0;
+
+    while (i < size1 && j < size2) {
+        if (strcmp(list1[i], list2[j]) < 0) {
+            (*mergedList)[k++] = strdup(list1[i++]);
+        } else {
+            (*mergedList)[k++] = strdup(list2[j++]);
+        }
+    }
+
+    // Add remaining elements from list1
+    while (i < size1) {
+        (*mergedList)[k++] = strdup(list1[i++]);
+    }
+
+    // Add remaining elements from list2
+    while (j < size2) {
+        (*mergedList)[k++] …
+#include <stdio.h>
+
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    …
+#include <stdio.h>
+
+int linearSearch(int arr[], int n, int key) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            return i;  // Return the index if the key is found
+        }
+    }
+    return -1;  // Return -1 if the key is not found
+}
+
+int main() {
+    int arr[] = {2, 5, 8, 12, 16, 23, 38, 45, 50};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int key = 16;
+
+    int result = linearSearch(arr, n, key);
+
+    if (result != -1) {
+        printf("Element %d found at index %d.\n", key, result);
+    } else {
+        printf("Element %d not found in the array.\n", key);
+    }
+
+    return 0;
+}
+*#include <stdio.h>
+
+int binarySearch(int arr[], int low, int high, int key) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == key) {
+            return mid;  // Return the index if the key is found
+        }
+
+        if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+
+    return -1;  // Return -1 if the key is not found
+}
+
+int main() {
+    int arr[] = {2, 5, 8, 12, 16, 23, 38, 45, 50};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int key = 16;
+
+    int result = binarySearch(arr, 0, n - 1, key);
+
+    if (result != -1) {
+        printf("Element %d found at index %d.\n", key, result);
+    } else {
+        printf("Element %d not found in the array.\n", key);
+    }
+
+    return 0;
+}
