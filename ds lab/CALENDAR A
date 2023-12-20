@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+// Define a structure to represent a day
+struct Day {
+char name[20];
+int date;
+char activity[100];
+};
+int main() {
+// Declare an array of 7 elements to represent the calendar
+struct Day calendar[7];
+// Initialize the calendar with sample data
+strcpy(calendar[0].name, "Monday");
+calendar[0].date = 1;
+strcpy(calendar[0].activity, "Work from 9 AM to 5 PM");
+strcpy(calendar[1].name, "Tuesday");
