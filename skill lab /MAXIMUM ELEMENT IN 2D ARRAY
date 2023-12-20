@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Function to find the maximum element in a 2D array using pointers to pointers
+int findMaxElement(int rows, int cols, int **matrix) {
+    int max = matrix[0][0];
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (matrix[i][j] > max) {
+                max = matrix[i][j];
+            }
+        }
+    }
+
+    return max;
+}
+
+int main() {
+    // Example 2D array
+    int rows = 3, cols = 4;
+    int data[][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+
+    // Declare a pointer to pointer and assign the address of the first element of the array
+    int *matrix = (int *)data;
+
+    // Display the original 2D array
+    printf("Original 2D Array:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Call the function to find the maximum element
+    int maxElement = findMaxElement(rows, cols, matrix);
+
+    // Display the maximum element
+    printf("\nMaximum Element: %d\n", maxElement);
+
+    return 0;
+}
