@@ -1,0 +1,24 @@
+WRITE A FUNCTION FOR ADDITION IF TWO POLYNOMIALS
+
+d=Zero();
+while(!IS Zero(a) && !IS Zero(b))do
+{
+switch COMPARE (leadExp(a),leadExp(b))
+{
+case -1: d=Attach(d,coef(b,leadExp(b)),leadExp(b));
+b=Remove (b,leadExp(b));
+break;
+case 1: attach(d,coef(a,leadExp(a)),leadExp(a));
+a=Remove (a,leadExp(a));
+break;
+case 0:Sum =coef(a,leadExp(a))+coef(b,leadExp(b));
+if(Sum)
+{
+Attach(d,Sum,leadExp(a));
+a=Remove (a,leadExp(a));
+b=Remove (b,leadExp(b));
+}
+break
+}
+}insert any remaining terms of a /b into d.
+
