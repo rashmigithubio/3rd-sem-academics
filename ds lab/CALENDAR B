@@ -64,3 +64,31 @@ return 1;
 display(calendar);
 return 0;
 }
+
+OUTPUT :
+SAMPLE OUTPUT 1:
+1. Create Calendar
+2. Read Calendar from File
+Enter your choice: 1
+Enter details for Monday:
+Date: 07/01/2001
+Activity: Enter details for Tuesday:
+Date: JAVA
+Activity: Enter details for Wednesday:
+Date: PYTHON
+Activity: Enter details for Thursday:
+Date: C/C++
+Activity: Enter details for Friday:
+Date: GAMING
+Activity: Enter details for Saturday:
+Date: APTITUDE
+Activity: Enter details for Sunday:
+Date: GENERAL KNOWLEDGE
+Activity: Calendar for the week:
+Monday (Date: 7): /01/2001
+Tuesday (Date: 1417934205): JAVA
+Wednesday (Date: 32543): PYTHON
+Thursday (Date: 0): C/C++
+Friday (Date: 0): GAMING
+Saturday (Date: 832): APTITUDE
+Sunday (Date: 0): GENERAL KNOWLEDGE
