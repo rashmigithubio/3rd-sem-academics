@@ -17,3 +17,15 @@ tower(n, 'A', 'B', 'C');
 printf("\n\nTotal Number of moves are: %d", (int)pow(2,n)-1);
 getch();
 }
+
+OUTPUT :
+SAMPLE OUTPUT 1:
+Enter the number of discs: 3
+Move disc 1 from A to C
+Move disc 2 from A to B
+Move disc 1 from C to B
+Move disc 3 from A to C
+Move disc 1 from B to A
+Move disc 2 from B to C
+Move disc 1 from A to C
+Total Number of moves are: 7
