@@ -90,3 +90,36 @@ return 1;
 }
 return 0;
 }
+
+OUTPUT :
+SAMPLE OUTPUT 1:
+Circular Queue operations
+1.insert
+2. delete
+3.display
+4.exit
+Enter your choice:1
+Enter element to be insert:10
+Enter your choice:1
+Enter element to be insert:20
+Enter your choice:1
+Enter element to be insert:30
+Enter your choice:3 10 20 30 rear is at 30 front is at 10
+Enter your choice:2 Deleted element is:10
+Enter your choice:3 20 30 rear is at 30 front is at 20
+Enter your choice:4
+Exit
+SAMPLE OUTPUT 2:
+Circular Queue operations 1.insert 2.delete 3.display 4.exit
+Enter your choice:1
+Enter element to be insert:1000
+Enter your choice:1
+Enter element to be insert:2000
+Enter your choice:1
+Enter element to be insert:3000
+Enter your choice:3 1000 2000 3000 rear is at 3000 front is at 1000
+Enter your choice:2
+Deleted element is:1000
+Enter your choice:3 2000 3000 rear is at 3000 front is at 2000
+Enter your choice:4
+Exit
