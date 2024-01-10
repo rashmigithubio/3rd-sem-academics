@@ -76,6 +76,21 @@ case '^' : return pow(op2,op1);
 }
 }
 
+OUTPUT :
+
+SAMPLE OUTPUT 1:
+Enter Expression:123*+4-
+2.000000 * 3.000000 = 6.000000
+1.000000 + 6.000000 = 7.000000
+7.000000 - 4.000000 = 3.000000
+3.000000
+End Result: 3
+SAMPLE OUTPUT 2:
+Insert a postfix notation :: 22^32*+ Result :: 10
+SAMPLE OUTPUT 3:
+Insert a postfix notation :: 23+ Result :: 5
+
+
 
 
 
