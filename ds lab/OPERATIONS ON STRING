@@ -39,3 +39,15 @@ printf("\nThe RESULTANT string is:%s\n" ,ans);
 }
 }
 
+OUTPUT :
+SAMPLE OUTPUT 1:
+Enter the MAIN string: good morning
+Enter a PATTERN string: morning
+Enter a REPLACE string: evening
++The RESULTANT string is: good evening
+SAMPLE OUTPUT 2:
+Enter the MAIN string: hi vcet
+Enter a PATTERN string: bye
+Enter a REPLACE string: hello
+Pattern doesn’t found!!
+
