@@ -1,0 +1,6 @@
+#INCLUDE<STDIO.H>
+int main()
+{
+printf("helllo world");
+return 0;
+}
